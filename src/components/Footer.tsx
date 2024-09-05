@@ -15,7 +15,10 @@ function Footer() {
           >
             Terms of Service
           </Link>
-          <Link className='text-xs hover:underline underline-offset-4' href='#'>
+          <Link
+            className='text-xs hover:underline underline-offset-4'
+            href='/privacy-policy'
+          >
             Privacy
           </Link>
         </nav>
