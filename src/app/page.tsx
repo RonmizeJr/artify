@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button';
 import { Move, Layers, Zap, DollarSign } from 'lucide-react';
-import Link from 'next/link';
 import Image from 'next/image';
 
 interface FeatureCardProps {
@@ -19,12 +18,12 @@ interface PricingCardProps {
 export default function Home() {
   return (
     <div className='flex flex-col min-h-screen'>
-      <main className='flex-1 bg-secondary'>
-        <section className='w-full py-12 md:py-24 lg:py-32 xl:py-48'>
+      <main className='flex-1'>
+        <section className='w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-background'>
           <div className='container px-4 md:px-6 mx-auto max-w-4xl'>
             <div className='flex flex-col items-center space-y-4 text-center'>
               <div className=''>
-                <h1 className='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none'>
+                <h1 className='text-3xl text-accent-foreground font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none'>
                   Create Beautiful Designs with Ease
                 </h1>
                 <p className='mx-auto max-w-[700px] text-gray-500 md:text-xl'>
@@ -34,7 +33,7 @@ export default function Home() {
               </div>
               <div className='space-x-4'>
                 <Button>Try for Free</Button>
-                <Button variant='outline' className='text-white'>
+                <Button variant='outline' className='text-foreground'>
                   Watch Demo
                 </Button>
               </div>
@@ -68,15 +67,18 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section id='demo' className='w-full py-12 md:py-24 lg:py-32'>
+        <section
+          id='demo'
+          className='w-full py-12 md:py-24 lg:py-32 bg-background'
+        >
           <div className='container px-4 md:px-6 mx-auto max-w-4xl '>
-            <h2 className='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8'>
+            <h2 className='text-3xl text-foreground font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8'>
               See It in Action
             </h2>
-            <div className='aspect-video rounded-xl overflow-hidden'>
+            <div className='aspect-video rounded-xl overflow-hidden bg-foreground'>
               <Image
                 src='/placeholder.svg?height=720&width=1280'
-                alt='DragDropPaint Demo'
+                alt='Artify Demo'
                 width={1280}
                 height={720}
                 className='object-cover w-full h-full'
@@ -128,27 +130,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className='flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t'>
-        <div className='container mx-auto max-w-4xl flex flex-col sm:flex-row justify-between items-center'>
-          <p className='text-xs text-gray-500'>
-            © 2023 DragDropPaint. All rights reserved.
-          </p>
-          <nav className='sm:ml-auto flex gap-4 sm:gap-6'>
-            <Link
-              className='text-xs hover:underline underline-offset-4'
-              href='#'
-            >
-              Terms of Service
-            </Link>
-            <Link
-              className='text-xs hover:underline underline-offset-4'
-              href='#'
-            >
-              Privacy
-            </Link>
-          </nav>
-        </div>
-      </footer>
     </div>
   );
 }
