@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Move, Layers, Zap, DollarSign } from 'lucide-react';
 import Image from 'next/image';
 
@@ -135,11 +136,11 @@ export default function Home() {
 }
 function FeatureCard({ icon, title, description }: FeatureCardProps) {
   return (
-    <div className='flex flex-col items-center text-center'>
-      <div className='mb-4'>{icon}</div>
-      <h3 className='text-xl font-bold mb-2'>{title}</h3>
-      <p className='text-gray-500'>{description}</p>
-    </div>
+    <Card className='flex flex-col items-center text-center'>
+      <CardHeader className='mb-4'>{icon}</CardHeader>
+      <CardTitle className='text-xl font-bold mb-2'>{title}</CardTitle>
+      <CardContent className='text-gray-500'>{description}</CardContent>
+    </Card>
   );
 }
 
@@ -150,21 +151,21 @@ function PricingCard({
   highlighted = false,
 }: PricingCardProps) {
   return (
-    <div
-      className={`flex flex-col p-6 bg-white rounded-lg shadow-lg ${
+    <Card
+      className={`flex flex-col p-6 rounded-lg shadow-lg ${
         highlighted ? 'ring-2 ring-primary' : ''
       }`}
     >
-      <h3 className='text-2xl font-bold mb-4'>{title}</h3>
-      <div className='text-4xl font-bold mb-4'>{price}</div>
-      <ul className='mb-6 space-y-2'>
+      <CardTitle className='text-2xl font-bold mb-4'>{title}</CardTitle>
+      <CardHeader className='text-4xl font-bold mb-4'>{price}</CardHeader>
+      <CardContent className='mb-6 space-y-2'>
         {features.map((feature, index) => (
           <li key={index} className='flex items-center'>
             <DollarSign className='h-5 w-5 text-green-500 mr-2' />
             {feature}
           </li>
         ))}
-      </ul>
+      </CardContent>
       <Button
         className={`mt-auto ${
           highlighted ? 'bg-primary text-primary-foreground' : ''
@@ -172,6 +173,6 @@ function PricingCard({
       >
         Get Started
       </Button>
-    </div>
+    </Card>
   );
 }
